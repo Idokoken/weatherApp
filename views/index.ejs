@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>weather-app</title>
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+</head>
+<body>
+  <div id="weather-app">
+    <div class='app-name'>CREATIVE KEN</div>
+    <div class='app-name'>Weather App</div>
+  </div>
+  <div id="weather-search">
+    <form action="/" method="POST">
+      <input type="search" name="city" placeholder="Enter City">
+      <button>Search</button>
+    </form>
+  </div>
+  <div id="weather-location">
+    <div class="location-city"><% if (name !== null && country !== null) {%>
+      <div><%=name%>, <%=country%>  </div>
+    <%} %> </div>
+    <div class="location-date"><%=wdate %>, <%=wdate2 %>  </div>
+    <div class="temp-value"><% if (temp !== null) {%>
+      <div><%=temp%> <sup>o</sup>C</div>
+    <%} %> </div>
+    <div class="weather-icon"><% if (icon !== null) {%>
+      <img src="http://openweathermap.org/img/w/02n.png<%=icon%>.png " alt="weather icon">
+    <%} %> </div>
+    <div class="temp-reading"><% if (description !== null) {%>
+      <div><%=description%></div> <% } %> 
+  </div>
+  
+  <script src="js/bootstrap.min.js"></script>
+  <script src='/js/jquery.min.js'></script>
+</body>
+</html>

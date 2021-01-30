@@ -1,6 +1,7 @@
 const express = require("express");
 const moment = require("moment");
 const fetch = require("node-fetch");
+require("dotenv").config();
 
 const weatherRouter = express.Router();
 
@@ -26,9 +27,18 @@ weatherRouter.post("/", async (req, res) => {
   const wdate2 = moment(d).format("h:mm:ss a");
 
   const city = req.body.city;
-  const api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=eae4c7df9d0c80084e5da9ace7f1a8b9`;
+  const ap2 =
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
+    city +
+    "&units=metric&appid=" +
+    process.env.WEATH_API;
+  // const api =
+  //   "https://api.openweathermap.org/data/2.5/weather?q=" +
+  //   city +
+  //   "&appid=" +
+  //   process.env.WEATH_API;
   try {
-    await fetch(api)
+    await fetch(ap2)
       .then((res) => res.json())
       .then((data) => {
         if (data.message === "city not found") {

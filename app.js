@@ -2,6 +2,7 @@ const bodyParser = require("body-parser");
 const express = require("express");
 const path = require("path");
 const weatherRouter = require("./routes/weatherRouter");
+require("dotenv").config();
 
 const app = express();
 
@@ -24,5 +25,5 @@ app.use(
   express.static(path.join(__dirname, "node_modules/jquery/dist"))
 );
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT;
 app.listen(port, () => console.log(`listening on port 4000`));

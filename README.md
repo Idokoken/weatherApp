@@ -1,4 +1,4 @@
-# React-Weatherapp
+# Nodejs-Weatherapp
 
 ## Usage
 

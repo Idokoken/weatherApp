@@ -1,5 +1,10 @@
-html {
-  height: 100%;
+*{
+	box-sizing: border-box;
+}
+
+:root{
+	 --primary: #0B88B0;
+	 --secondary: #E5ECEC;
 }
 
 body {
@@ -8,79 +13,89 @@ body {
   background-image: url('/assets/weather1.jpeg');
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  height: 100%;
+  height: 100vh;
+  width: 100vw;
+  postion: relative;
 }
-@media screen and (min-width: 600px) {
-  body {
-    margin: 0;
-    padding: 0;
-    background-image: url('/assets/weather1.jpeg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
-  }
-}
-
-#weather-app {
+header div {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  background-color: darkgray;
+  background-color: var(--primary);
   height: 10%;
   margin-bottom: 50px;
 }
-
-.app-name {
-  color: green;
-  margin: 10px, 0;
-
+header h2, header p {
+  color: white;
+  margin: 0;
 }
 
-#weather-search {
+main form {
   margin: auto;
   height: 5%;
   width: 50%;
   margin-bottom: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;   
 }
 
-@media screen and (min-width: 600px) {
-  #weather-search {
-    display: flex;
-    justify-content: center;
-    height: 5%;
-    width: 50%;
-    margin-bottom: 100px;
-  }
-} 
-
-input {
- border: 2px solid darkgreen;
- height: 100%;
- opacity: 0.5;
- border-radius: 10px;
+main input, main button{
+	border: 2px solid white;	
+	height: 30px;
+}
+main input {
+ border-radius: 10px 0 0 10px;
+ background: grey;
+ color: white;
+ padding-left: 10px;
+}
+main button {
+  color: white;
+  border-radius: 0 10px 10px 0;
+  background: darkgreen;
 }
 
-.location-city, .location-date, .temp-value, .temp-reading, .weather-icon {
+main #weather-location{
+	/* background: var(--secondary); */
+	width: 80%;
+	height: 270px;
+	/* border: 5px solid black; */
+	border-radius: 20px; 
+	position: absolute;
+	background: #dde1e7;
+	box-shadow: 5px 5px 10px #212121, -5px -5px 10px #EFF8F4;
+	margin: 0;
+	top: 50%;
+	left: 50%;
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	
+}
+main .location-city, .location-date, .temp-value, .temp-reading, .weather-icon {
   color: darkgreen;
   text-align: center;
   font-size: 30px;
-  margin: 30px 0;
+  margin: 10px 0;
 }
-button {
-  color: green;
-  border: 2px solid darkgreen;
-  height: 100%;
-  opacity: 0.5;
-  border-radius: 10px;
-  margin-left: 20px;
+main .location-date{
+	font-size: 20px;
 }
 
-form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-  
+footer{
+	height: 50px;
+	background: rgb(0, 0, 225);
+	position: absolute;
+	bottom: 10px;
 }
 
+/* for medium and large screen */
+@media screen and (min-width: 678px) {
+	body {
+    background-size: cover;    
+  }
+  main form {
+    margin-bottom: 100px;
+  }
+} 

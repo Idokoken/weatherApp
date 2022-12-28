@@ -3,38 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-  <title>weather-app</title>
-  <link rel="stylesheet" href="css/index.css">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+  <title>wchatta</title>
+  <link rel="stylesheet" href="/css/index.css">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  
 </head>
 <body>
-  <div id="weather-app">
-    <div class='app-name'>CREATIVE KEN</div>
-    <div class='app-name'>Weather App</div>
+<header>
+  <div>
+    <h2 class=''>WCHATTA APP</h2>
+    <p class=''>Weather App</p>
   </div>
-  <div id="weather-search">
+</header>
+  <main>
     <form action="/" method="POST">
       <input type="search" name="city" placeholder="Enter City">
       <button>Search</button>
     </form>
+    <div id="weather-location">
+    <div class="location-city">
+      <%= name%>, <%= country%>
+    </div>
+    <div class="location-date"><%=wdate %></div>
+    <% if(temp !== null) {%>
+    	 <div class="temp-value">
+      <%=temp%> <sup>o</sup>C      
+     </div>
+   <% }%>
+   
+    <% if(temp !== null) {%> 
+    <div class="weather-icon">
+       <img  src="http://openweathermap.org/img/w/<%=icon%>.png" alt="weather icon">
+    </div>
+   <% }%>
+     
+    <div class="temp-reading">
+      <%=description%>
   </div>
-  <div id="weather-location">
-    <div class="location-city"><% if (name !== null && country !== null) {%>
-      <div><%=name%>, <%=country%>  </div>
-    <%} %> </div>
-    <div class="location-date"><%=wdate %>, <%=wdate2 %>  </div>
-    <div class="temp-value"><% if (temp !== null) {%>
-      <div><%=temp%> <sup>o</sup>C</div>
-    <%} %> </div>
-    <div class="weather-icon"><% if (icon !== null) {%>
-      <img src="http://openweathermap.org/img/w/<%=icon%>.png" alt="weather icon">
-    <%} %> </div>
-    <div class="temp-reading"><% if (description !== null) {%>
-      <div><%=description%></div> <% } %> 
-  </div>
+  </main>
   
-  <script src="js/bootstrap.min.js"></script>
-  <script src='/js/jquery.min.js'></script>
+  <footer></footer>
+  <script src="/js/bootstrap.bundle.min.js"></script>  
 </body>
 </html>

@@ -1,11 +1,13 @@
-const bodyParser = require("body-parser");
 const express = require("express");
 const path = require("path");
+const morgan = require("morgan")
+const chalk = require("chalk");
 const weatherRouter = require("./routes/weatherRouter");
-require("dotenv").config();
+//require("dotenv").config();
 
 const app = express();
 
+app.use(morgan("dev"))
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.set("view engine", "ejs");
@@ -20,10 +22,8 @@ app.use(
   "/js",
   express.static(path.join(__dirname, "node_modules/bootstrap/dist/js"))
 );
-app.use(
-  "/js",
-  express.static(path.join(__dirname, "node_modules/jquery/dist"))
-);
+global.moment = require("moment")
+
 
 const port = process.env.PORT;
-app.listen(port, () => console.log(`listening on port 4000`));
+app.listen(port, () => console.log(chalk.magenta(`listening on port 4000`)));
